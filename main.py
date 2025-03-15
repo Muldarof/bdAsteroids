@@ -15,17 +15,18 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
     
-    mainCharacter = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT /2, 2)
+    mainCharacter = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT /2, 10)
 
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
         screen.fill("black")
+        mainCharacter.draw(screen)
         pygame.display.flip()
         time = clock.tick(60)
         dt = time / 1000
-        mainCharacter.draw(screen)
+        
 
 
 if __name__ == "__main__":
