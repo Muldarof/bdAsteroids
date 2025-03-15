@@ -25,18 +25,21 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+            
+        #limit screen updates to 60 fps
+        dt = clock.tick(60) / 1000
+        
         # Draw background (black)
         screen.fill("black")
         
         #Draw everything
+        mainCharacter.update(dt)
         mainCharacter.draw(screen)
 
         #Update drawing to screen
         pygame.display.flip()
 
-        #limit screen updates to 60 fps
-        time = clock.tick(60)
-        dt = time / 1000
+        
         
 
 
