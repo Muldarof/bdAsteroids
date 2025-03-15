@@ -5,6 +5,7 @@ class player(circleshape):
     def __init__(self, x, y, radius):
         super().__init__(x,y,radius)
         self.rotation = 0
+
     # in the player class
     def triangle(self):
         forward = pygame.Vector2(0, 1).rotate(self.rotation)
@@ -13,3 +14,6 @@ class player(circleshape):
         b = self.position - forward * self.radius - right
         c = self.position - forward * self.radius + right
         return [a, b, c]
+
+    def draw(self, screen):
+        pygame.draw.polygon(screen, "white", self.triangle(), width = 2)
